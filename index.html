@@ -165,13 +165,13 @@
       display: flex;
       justify-content: center;
       align-items: flex-end;
-      gap: 5px;
+      gap: 4px; /* Немного уменьшил промежуток для 27 колонок */
     }
 
     .bar {
-      width: 8px;
+      width: 6px; /* Чуть уже для 27 колонок */
       background: var(--primary);
-      border-radius: 5px 5px 0 0;
+      border-radius: 3px 3px 0 0;
       animation: equalize 1.5s infinite ease-in-out;
     }
 
@@ -234,14 +234,14 @@
       }
     });
 
-    // Audio visualizer effect
+    // Audio visualizer effect - обновлено до 27 колонок
     const visualizer = document.getElementById('visualizer');
-    const barCount = 21;
+    const barCount = 27; // Теперь 27 столбцов
     for (let i = 0; i < barCount; i++) {
       const bar = document.createElement('div');
       bar.className = 'bar';
       bar.style.height = `${20 + Math.random() * 60}%`;
-      bar.style.animationDelay = `${i * 0.05}s`;
+      bar.style.animationDelay = `${i * 0.03}s`; // Уменьшил задержку для плавности
       visualizer.appendChild(bar);
     }
 
