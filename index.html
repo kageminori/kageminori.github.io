@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KAGEMINORI | Electronic Producer</title>
+  <title>kageminori</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
@@ -115,13 +115,13 @@
       width: 100%;
       height: 100px;
       margin: 2rem 0;
-      position: relative;
-      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 5px;
     }
 
     .bar {
-      position: absolute;
-      bottom: 0;
       width: 8px;
       background: var(--primary);
       border-radius: 5px 5px 0 0;
@@ -137,6 +137,16 @@
       margin-top: 3rem;
       font-size: 0.9rem;
       opacity: 0.6;
+    }
+
+    /* Custom Yandex Music icon */
+    .yandex-music-icon {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: currentColor;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0a12 12 0 100 24 12 12 0 000-24zm0 20a8 8 0 110-16 8 8 0 010 16zm1.5-8.5l-3-2v7l3-2v-3z'/%3E%3C/svg%3E") no-repeat center;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0a12 12 0 100 24 12 12 0 000-24zm0 20a8 8 0 110-16 8 8 0 010 16zm1.5-8.5l-3-2v7l3-2v-3z'/%3E%3C/svg%3E") no-repeat center;
     }
   </style>
 </head>
@@ -156,16 +166,16 @@
     <a href="#" class="cta">LISTEN LATEST RELEASE</a>
 
     <div class="links">
-      <a href="#" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
-      <a href="#" aria-label="SoundCloud"><i class="fab fa-soundcloud"></i></a>
-      <a href="#" aria-label="Apple Music"><i class="fab fa-apple"></i></a>
-      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://open.spotify.com/artist/04sCWKrpBHiJNcOthQEstz" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+      <a href="https://soundcloud.com/kageminori" aria-label="SoundCloud"><i class="fab fa-soundcloud"></i></a>
+      <a href="https://music.yandex.ru/artist/22936948" aria-label="Yandex Music"><span class="yandex-music-icon"></span></a>
+      <a href="https://www.youtube.com/@wickedcorerecords" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://x.com/kageminori" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
     </div>
   </div>
 
   <footer>
-    kageminori.qna@gmail.com
+    contact: kageminori.qna@gmail.com
   </footer>
 
   <script>
@@ -183,12 +193,13 @@
       }
     });
 
-    // Audio visualizer effect
+    // Audio visualizer effect - now properly centered
     const visualizer = document.getElementById('visualizer');
-    for (let i = 0; i < 20; i++) {
+    const barCount = 21; // Odd number for perfect centering
+    for (let i = 0; i < barCount; i++) {
       const bar = document.createElement('div');
       bar.className = 'bar';
-      bar.style.left = `${i * 15}px`;
+      bar.style.height = `${20 + Math.random() * 60}%`;
       bar.style.animationDelay = `${i * 0.05}s`;
       visualizer.appendChild(bar);
     }
